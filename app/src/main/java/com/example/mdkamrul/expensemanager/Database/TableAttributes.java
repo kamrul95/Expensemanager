@@ -7,18 +7,14 @@ import static android.transition.Fade.IN;
  */
 
 public class TableAttributes {
+    public static final String STUDENTTABLENAME = "Student";
+    public static final String USERNAME = "name";
+    public static final String PASSWORD = "password";
 
-    public static final String STUDENT_TABLE_NAME = "Student";
-    public static final String STUDENT_NAME = "name";
-    public static final String STUDENT_PASSWORD = "password";
-    public static final String STUDENT_PHONENO = "phoneNo";
-    public static final String STUDENT_AGE = "age";
 
     public String studentTableCreateQuery(){
-        return "CREATE TABLE "+STUDENT_TABLE_NAME+"(student_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                STUDENT_NAME+" TEXT," +
-                STUDENT_PASSWORD+" TEXT," +
-                STUDENT_PHONENO+" TEXT," +
-                STUDENT_AGE+" INTEGER)";
+        return "CREATE TABLE "+STUDENTTABLENAME+"(student_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                USERNAME+" TEXT," +
+                PASSWORD+" TEXT)";
     }
 }

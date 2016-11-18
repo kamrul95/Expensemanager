@@ -5,17 +5,17 @@ package com.example.mdkamrul.expensemanager.Model;
  */
 
 public class Registration {
-    private String username;
-    private String password;
-    private String phoneNo;
-    private int age;
+    private String userName;
+    private  String password;
 
-    public String getUsername() {
-        return username;
+
+
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -26,33 +26,14 @@ public class Registration {
         this.password = password;
     }
 
-    public String getPhoneNo() {
-        return phoneNo;
-    }
-
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     @Override
     public String toString() {
         return
-                "Username: " + username + "\n" +
-                        "PhoneNo='" + phoneNo + "\n";
+                "Username: " + userName + "\n" +
+                        "Password= " + password + "\n";
     }
-
     public String toStringDialog(){
-        return  "Username: " + username + "\n" +
-                "Password: " + password + "\n" +
-                "PhoneNo='" + phoneNo + "\n" +
-                "Age=" + age;
+        return  "Username: " + userName + "\n" +
+                "Password: " + password + "\n";
     }
 }
