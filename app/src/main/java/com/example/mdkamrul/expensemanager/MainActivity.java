@@ -15,7 +15,11 @@ import android.widget.Toast;
 import com.example.mdkamrul.expensemanager.Database.DatabaseHelper;
 import com.example.mdkamrul.expensemanager.Model.Registration;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -64,11 +68,16 @@ public class MainActivity extends AppCompatActivity {
                 error = false;
                 String username = eTUserName.getText().toString();
                 String password = eTPassword.getText().toString();
-
+                //DateFormat df = new SimpleDateFormat("dd/MM/yy");
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+                String formattedDate = df.format(c.getTime());
+                Toast.makeText(MainActivity.this,formattedDate,Toast.LENGTH_SHORT).show();
 
                 Registration stdObj = new Registration();
                 stdObj.setUserName(username);
                 stdObj.setPassword(password);
+                stdObj.setExpenseDate(formattedDate);
                 db.insertStudent(stdObj);
                 arrayListStd = db.getAllStudents();
                 adapter = new ArrayAdapter<Registration>(MainActivity.this, android.R.layout.simple_list_item_1, arrayListStd);

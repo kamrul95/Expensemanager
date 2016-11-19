@@ -26,13 +26,18 @@
         android:layout_below="@+id/editTextUsername"
         android:inputType="textPassword"/>
 
-
+   <Button
+       android:id="@+id/buttonDate"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Today"
+       android:layout_below="@+id/editTextPassword"/>
 
     <Button
         android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextPassword"
+        android:layout_below="@+id/buttonDate"
         android:layout_centerHorizontal="true"
         android:text="Save"/>
 

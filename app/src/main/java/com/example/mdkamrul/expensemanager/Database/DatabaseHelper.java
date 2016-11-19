@@ -7,7 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.example.mdkamrul.expensemanager.MainActivity;
 import com.example.mdkamrul.expensemanager.Model.Registration;
 
 import java.util.ArrayList;
@@ -46,6 +48,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(TableAttributes.USERNAME,studentObject.getUserName());
         values.put(TableAttributes.PASSWORD,studentObject.getPassword());
+        values.put(TableAttributes.EXPENSEDATE,studentObject.getExpenseDate());
+        //Toast.makeText(MainActivity.this,studentObject.getExpenseDate(),Toast.LENGTH_SHORT).show();
         try {
             dbInsert.insert(TableAttributes.STUDENTTABLENAME, null, values);
             Log.i("Create: ", "Table Created");
@@ -65,6 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Registration studentObject = new Registration();
             studentObject.setUserName(cursor.getString(cursor.getColumnIndex(TableAttributes.USERNAME)));
             studentObject.setPassword(cursor.getString(cursor.getColumnIndex(TableAttributes.PASSWORD)));
+            studentObject.setExpenseDate(cursor.getString(cursor.getColumnIndex(TableAttributes.EXPENSEDATE)));
             arrayListAllStudent.add(studentObject);
             cursor.moveToNext();
         }

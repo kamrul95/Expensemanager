@@ -10,11 +10,11 @@ public class TableAttributes {
     public static final String STUDENTTABLENAME = "Student";
     public static final String USERNAME = "name";
     public static final String PASSWORD = "password";
-
+    public static final String EXPENSEDATE="expenseDate";
 
     public String studentTableCreateQuery(){
         return "CREATE TABLE "+STUDENTTABLENAME+"(student_id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 USERNAME+" TEXT," +
-                PASSWORD+" TEXT)";
+                PASSWORD+" TEXT,"+EXPENSEDATE+" TEXT)";
     }
 }
