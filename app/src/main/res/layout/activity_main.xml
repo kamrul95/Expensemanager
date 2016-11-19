@@ -5,48 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
-    <EditText
-        android:id="@+id/editTextUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Uername"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:maxLength="50"/>
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:layout_alignLeft="@+id/editTextUsername"
-        android:layout_alignRight="@+id/editTextUsername"
-        android:layout_below="@+id/editTextUsername"
-        android:inputType="textPassword"/>
-
-   <Button
-       android:id="@+id/buttonDate"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:text="Today"
-       android:layout_below="@+id/editTextPassword"/>
-
     <Button
-        android:id="@+id/buttonSave"
+        android:id="@+id/buttonAddExpense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonDate"
         android:layout_centerHorizontal="true"
-        android:text="Save"/>
-
-    <ListView
-        android:layout_width="match_parent"
+        android:text="Add Expense"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@+id/buttonExpenseDetails"
+        android:layout_alignRight="@+id/buttonExpenseDetails"
+        />
+    <Button
+        android:id="@+id/buttonAddIncome"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listViewResult"
-        android:layout_below="@id/buttonSave"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/buttonAddExpense"
+        android:text="Add Income"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"></ListView>
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@+id/buttonExpenseDetails"
+        android:layout_alignRight="@+id/buttonExpenseDetails"
+        />
+    <Button
+        android:id="@+id/buttonExpenseDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Expense Details"
+        android:layout_below="@+id/buttonAddIncome"
+        android:layout_marginTop="10dp"
+       />
+
+
 </RelativeLayout>

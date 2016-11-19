@@ -1,6 +1,7 @@
 package com.example.mdkamrul.expensemanager;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -23,68 +24,31 @@ import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
-    EditText eTUserName, eTPassword;
-    Button saveBtn;
-    boolean error;
-    ListView listView;
-    ArrayList<Registration> arrayListStd;
-    ArrayAdapter<Registration> adapter;
-    DatabaseHelper db;
+    Button buttonAddExpense,buttonAddIncome,buttonExpenseDetailes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        buttonAddExpense = (Button) findViewById(R.id.buttonAddExpense);
+        buttonAddIncome = (Button)findViewById(R.id.buttonAddIncome);
+        buttonExpenseDetailes = (Button)findViewById(R.id.buttonExpenseDetails);
 
-        eTUserName = (EditText) findViewById(R.id.editTextUsername);
-        eTPassword = (EditText) findViewById(R.id.editTextPassword);
-        saveBtn = (Button) findViewById(R.id.buttonSave);
-        listView = (ListView) findViewById(R.id.listViewResult);
-
-        db = new DatabaseHelper(MainActivity.this);
-        arrayListStd = db.getAllStudents();
-        adapter = new ArrayAdapter<Registration>(MainActivity.this, android.R.layout.simple_list_item_1, arrayListStd);
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-                dialog.setTitle("STUDENT DETAILS");
-                dialog.setMessage(arrayListStd.get(position).toStringDialog());
-                dialog.setPositiveButton("DONE", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                dialog.show();
-            }
-        });
-
-        saveBtn.setOnClickListener(new View.OnClickListener() {
+        buttonAddExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                error = false;
-                String username = eTUserName.getText().toString();
-                String password = eTPassword.getText().toString();
-                //DateFormat df = new SimpleDateFormat("dd/MM/yy");
-                Calendar c = Calendar.getInstance();
-                SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-                String formattedDate = df.format(c.getTime());
-                Toast.makeText(MainActivity.this,formattedDate,Toast.LENGTH_SHORT).show();
-
-                Registration stdObj = new Registration();
-                stdObj.setUserName(username);
-                stdObj.setPassword(password);
-                stdObj.setExpenseDate(formattedDate);
-                db.insertStudent(stdObj);
-                arrayListStd = db.getAllStudents();
-                adapter = new ArrayAdapter<Registration>(MainActivity.this, android.R.layout.simple_list_item_1, arrayListStd);
-                listView.setAdapter(adapter);
-                Toast.makeText(MainActivity.this, "Data is saved!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this,ExpenseActivity.class);
+                startActivity(intent);
             }
+        });
 
+        buttonExpenseDetailes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ExpenseDetails.class);
+                startActivity(intent);
+            }
         });
     }
+
 }
