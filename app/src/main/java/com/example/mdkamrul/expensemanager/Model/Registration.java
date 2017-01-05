@@ -1,5 +1,6 @@
 package com.example.mdkamrul.expensemanager.Model;
 
+import static android.R.attr.password;
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 /**
@@ -7,8 +8,8 @@ import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
  */
 
 public class Registration {
-    private String userName;
-    private  String password;
+    private String type;
+    private  Double cost;
     private  String expenseDate;
     public String getExpenseDate() {
         return expenseDate;
@@ -20,30 +21,30 @@ public class Registration {
 
 
 
-    public String getUserName() {
-        return userName;
+    public String getType() {
+        return type;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getPassword() {
-        return password;
+    public Double getCost() {
+        return cost;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setCost(Double cost) {
+        this.cost = cost;
     }
 
     @Override
     public String toString() {
         return
-                "Username: " + userName + "\n" +
-                        "Password= " + password + "\n"+"Expense Date: " + expenseDate;
+                "Type: " + type + "\n" +
+                        "Cost= " + cost + "\n"+"Expense Date: " + expenseDate;
     }
     public String toStringDialog(){
-        return  "Username: " + userName + "\n" +
-                "Password: " + password + "\n";
+        return  "Type: " + type + "\n" +
+                "Cost: " + cost + "\n";
     }
 }

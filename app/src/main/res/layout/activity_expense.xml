@@ -10,22 +10,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.mdkamrul.expensemanager.ExpenseActivity">
     <EditText
-        android:id="@+id/editTextUsername"
+        android:id="@+id/editTextType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Uername"
+        android:hint="Type"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:maxLength="50"/>
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/editTextCost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
-        android:layout_alignLeft="@+id/editTextUsername"
-        android:layout_alignRight="@+id/editTextUsername"
-        android:layout_below="@+id/editTextUsername"
+        android:hint="Cost"
+        android:layout_alignLeft="@+id/editTextType"
+        android:layout_alignRight="@+id/editTextType"
+        android:layout_below="@+id/editTextType"
         android:inputType="textPassword"/>
 
 
@@ -33,7 +33,7 @@
         android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextPassword"
+        android:layout_below="@+id/editTextCost"
         android:layout_centerHorizontal="true"
         android:text="Save"/>
 

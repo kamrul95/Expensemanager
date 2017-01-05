@@ -1,5 +1,6 @@
 package com.example.mdkamrul.expensemanager.Database;
 
+import static android.provider.Telephony.Carriers.PASSWORD;
 import static android.transition.Fade.IN;
 
 /**
@@ -7,14 +8,15 @@ import static android.transition.Fade.IN;
  */
 
 public class TableAttributes {
-    public static final String STUDENTTABLENAME = "Student";
-    public static final String USERNAME = "name";
-    public static final String PASSWORD = "password";
+    public static final String ADDEXPENSETABLENAME = "AddExpense";
+    public static final String EXPENSETYPE = "type";
+    public static final String COST = "cost";
     public static final String EXPENSEDATE="expenseDate";
 
     public String studentTableCreateQuery(){
-        return "CREATE TABLE "+STUDENTTABLENAME+"(student_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                USERNAME+" TEXT," +
-                PASSWORD+" TEXT,"+EXPENSEDATE+" TEXT)";
+        return "CREATE TABLE "+ADDEXPENSETABLENAME+"(student_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                EXPENSETYPE+" TEXT," +
+                COST+" Double,"+
+                EXPENSEDATE+" TEXT)";
     }
 }

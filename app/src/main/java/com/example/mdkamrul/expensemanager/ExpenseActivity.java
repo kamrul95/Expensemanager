@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ExpenseActivity extends AppCompatActivity {
-    EditText eTUserName, eTPassword;
+    EditText eTType, eTCost;
     Button saveBtn;
     boolean error;
     ListView listView;
@@ -32,8 +32,8 @@ public class ExpenseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expense);
-        eTUserName = (EditText) findViewById(R.id.editTextUsername);
-        eTPassword = (EditText) findViewById(R.id.editTextPassword);
+        eTType = (EditText) findViewById(R.id.editTextType);
+        eTCost = (EditText) findViewById(R.id.editTextCost);
         saveBtn = (Button) findViewById(R.id.buttonSave);
         listView = (ListView) findViewById(R.id.listViewResult);
 
@@ -62,16 +62,16 @@ public class ExpenseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 error = false;
-                String username = eTUserName.getText().toString();
-                String password = eTPassword.getText().toString();
+                String type = eTType.getText().toString();
+                Double cost = Double.parseDouble(eTCost.getText().toString());
                 Calendar c = Calendar.getInstance();
                 SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
                 String formattedDate = df.format(c.getTime());
                 Toast.makeText(ExpenseActivity.this,formattedDate,Toast.LENGTH_SHORT).show();
 
                 Registration stdObj = new Registration();
-                stdObj.setUserName(username);
-                stdObj.setPassword(password);
+                stdObj.setType(type);
+                stdObj.setCost(cost);
                 stdObj.setExpenseDate(formattedDate);
                 db.insertStudent(stdObj);
                 /*

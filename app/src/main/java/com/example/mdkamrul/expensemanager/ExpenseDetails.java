@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.mdkamrul.expensemanager.Database.DatabaseHelper;
 import com.example.mdkamrul.expensemanager.Model.Registration;
@@ -20,6 +21,7 @@ public class ExpenseDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expense_details);
+        Toast.makeText(ExpenseDetails.this, "Till This All is fine", Toast.LENGTH_LONG).show();
         listViewExpenseDetails = (ListView)findViewById(R.id.listViewExpenseDetails);
         db = new DatabaseHelper(ExpenseDetails.this);
         arrayListExpenseDetails =db.getAllStudents();
